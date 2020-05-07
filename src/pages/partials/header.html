@@ -1,0 +1,65 @@
+<header>
+  <div class="rp-container">
+    <div class="rp-grid grid-row--a-c rp-header">
+      <div class="rp-width-1-2@l grid-row">
+        <a href="/" class="rp-header__logo">
+          <img class="logo__img" src="img/site-logo.svg" alt="" />
+        </a>
+        <nav class="rp-header__nav">
+          <ul class="navmenu">
+            {%- for item in [
+              { title: "Ташкент", link: "tashkent.html" },
+              { title: "Узбекистан", link: "uzbekistan.html" },
+              { title: "Мир",  link: "mir.html" }
+            ] %}
+            <li class="navmenu__item">
+              <a class="navmenu__link" href="{{ item.link }}">
+                <span>{{ item.title }}</span>
+              </a>
+            </li>
+            {%- endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="rp-width-1-2@l">
+        <div class="grid-row grid-row--wrap grid-row--j-e dn-t">
+          <div class="rp-header__search">
+            <form class="grid-row grid-row--j-e grid-row--a-c navbar-form navbar-form-search" role="search">
+              <div class="search-form-container hdn search-input-container">
+                <div class="search-input-group">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="Поиск" autofocus>
+                  </div>
+                  <!-- <button type="button" class="btnClose hide-search-input-container">
+                    <i class="icon-cancel"></i>
+                  </button> -->
+                </div>
+              </div>
+              <button type="submit" class="navbar-form__btn search-button">
+                <svg>
+                  <use href="img/icons.svg#search"></use>
+                </svg>
+              </button>
+            </form>
+          </div>
+          <div class="rp-header__telegram rp-tg">
+            <a href="https://t.me/RepostUz" target="_blank" class="grid-row grid-row--wrap grid-row--a-c rp-tg__btn">
+              <span>Телеграм</span>
+              <svg>
+                <use href="img/icons.svg#telegram"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="header-menu-trigger dn" data-header-mobile="trigger">
+      <svg class="when-opened">
+        <use href="img/icons.svg#menu"></use>
+      </svg>
+      <svg class="when-closed">
+        <use href="img/icons.svg#close"></use>
+      </svg>
+    </div> -->
+  </div>
+</header>

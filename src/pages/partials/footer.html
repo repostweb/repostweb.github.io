@@ -1,0 +1,36 @@
+<footer class="ft">
+  <div class="rp-container">
+    <div class="rp-grid grid-row--a-c">
+      <div class="rp-width-1-1 rp-width-1-1@m rp-width-1-2@l grid-row ft-part ft-part--1">
+        <div>
+          <div class="grid-row grid-row--a-c plus18 grid-row--j-c">18 <span>+</span></div>
+        </div>
+        <div class="ft__copyright">
+          <p>
+            &copy; <a href="www.repost.uz" title="Repost.uz">Repost.uz</a>. Использование материалов сайта Repost.uz
+            разрешается в любом объеме с обязательным указанием активной ссылки на сайт максимум во втором абзаце
+            новости
+            и названия с сайта в виде "Repost.uz" или "Репост.уз"
+          </p>
+        </div>
+      </div>
+      <div class="rp-width-1-1 rp-width-1-1@m rp-width-1-2@l ft-part ft-part--2">
+        <nav class="grid-row grid-row--j-e ml-auto ft__menu">
+          <ul class="navmenu">
+            {%- for item in [
+              { title: "Реклама", link: "reklama.html" },
+              { title: "Контакты редакции", link: "contacts.html" },
+              { title: "Прислать новость",  link: "news.html" }
+            ] %}
+            <li class="navmenu__item">
+              <a class="navmenu__link" href="{{ item.link }}">
+                <span>{{ item.title }}</span>
+              </a>
+            </li>
+            {%- endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
