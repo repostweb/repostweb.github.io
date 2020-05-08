@@ -180,6 +180,18 @@ p {
   }
 }
 
+.text-italic {
+  font-style: italic;
+}
+
+.text-mute {
+  color: $gray2;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+
 .d-flex {
   display: flex;
 }
@@ -236,4 +248,9 @@ h6,
   position: relative;
   box-sizing: border-box;
   transition: box-shadow .1s ease-in-out;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }

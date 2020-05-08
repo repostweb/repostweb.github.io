@@ -1,0 +1,92 @@
+<section class="rp-stats">
+  <div class="statpanel grid-row grid-row--wrap grid-row--j-s">
+    <div class="statpanel__currency grid-row grid-row--wrap grid-row--a-c">
+      {%- for item in [
+        {
+          value: "10121.00",
+          currency: "usd",
+          icon: "arrow-up"
+        },
+        {
+          value: "10121.00",
+          currency: "euro",
+          icon: "arrow-down"
+        },
+        {
+          value: "10121.00",
+          currency: "rubl",
+          icon: "arrow-up"
+        }
+      ] %}
+      <div class="statpanel__item">
+        <span class="statpanel__mark">
+          <svg>
+            <use href="img/icons.svg#{{ item.currency }}"></use>
+          </svg>
+        </span>
+        <span class="statpanel__value">{{ item.value }}</span>
+        <span class="statpanel__status">
+          <svg>
+            <use href="img/icons.svg#{{ item.icon }}"></use>
+          </svg>
+        </span>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="statpanel__corona rp-corona grid-row grid-row--wrap grid-row--j-s dn-t">
+      <div class="rp-corona__title grid-row grid-row--a-c">
+        <img src="img/home/korona.png" alt="" />
+        <div class="rp-corona__info">
+          <h6>Коронавирус в Узбекистане</h6>
+          <span>Данные: Минздрав Узбекистана, Университет Джонса Хопкинса (США)</span>
+        </div>
+      </div>
+      <div class="rp-corona__stat rp-stat grid-row grid-row--wrap grid-row--j-e">
+        {%- for item in [
+          { count: "1 716",
+            text: "выявлено"
+          },
+          { count: "450",
+            text: "вылечились"
+          },
+          { count: "7",
+            text: "скончались"
+          }
+        ] %}
+        <div class="rp-stat__item">
+          <div class="rp-stat--count">{{ item.count }}</div>
+          <span>{{ item.text }}</span>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+  <!--mobile view-->
+  <div class="statpanel__corona rp-corona grid-row grid-row--wrap grid-row--j-s dn">
+    <div class="rp-corona__title grid-row grid-row--a-c">
+      <img src="img/home/korona.png" alt="" />
+      <div class="rp-corona__info">
+        <h6>Коронавирус в Узбекистане</h6>
+        <span>Данные: Минздрав Узбекистана, Университет Джонса Хопкинса (США)</span>
+      </div>
+    </div>
+    <div class="rp-corona__stat rp-stat grid-row grid-row--wrap grid-row--j-e">
+      {%- for item in [
+        { count: "1 716",
+          text: "выявлено"
+        },
+        { count: "450",
+          text: "вылечились"
+        },
+        { count: "7",
+          text: "скончались"
+        }
+      ] %}
+      <div class="rp-stat__item">
+        <div class="rp-stat--count">{{ item.count }}</div>
+        <span>{{ item.text }}</span>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

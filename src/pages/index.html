@@ -1,196 +1,177 @@
 {% extends "layout/layout.html" %}
 {% block content %}
-<main class="rp-main">
-  <div class="rp-container">
-    <!--Start Reklama-->
-    <section class="reklama reklama-top">
-      <img src="img/banner/banner-top.jpg" alt="" />
-    </section>
-    <!--Ends Reklama-->
+<div class="rp-container">
+  <!--Start Reklama-->
+  {% include 'partials/reklama/reklama-top.html' %}
+  <!--Ends Reklama-->
 
-    <!--Start Statistics-->
-    <section class="rp-stats">
-      <div class="statpanel grid-row grid-row--wrap grid-row--j-s">
-        <div class="statpanel__currency grid-row grid-row--wrap grid-row--a-c">
-          {%- for item in [
-            {
-              value: "10121.00",
-              currency: "usd",
-              icon: "arrow-up"
-            },
-            {
-              value: "10121.00",
-              currency: "euro",
-              icon: "arrow-down"
-            },
-            {
-              value: "10121.00",
-              currency: "rubl",
-              icon: "arrow-up"
-            }
-          ] %}
-          <div class="statpanel__item">
-            <span class="statpanel__mark">
-              <svg>
-                <use href="img/icons.svg#{{ item.currency }}"></use>
-              </svg>
-            </span>
-            <span class="statpanel__value">{{ item.value }}</span>
-            <span class="statpanel__status">
-              <svg>
-                <use href="img/icons.svg#{{ item.icon }}"></use>
-              </svg>
-            </span>
-          </div>
-          {%- endfor %}
-        </div>
-        <div class="statpanel__corona rp-corona grid-row grid-row--wrap grid-row--j-s dn-t">
-          <div class="rp-corona__title grid-row grid-row--a-c">
-            <img src="img/home/korona.png" alt="" />
-            <div class="rp-corona__info">
-              <h6>Коронавирус в Узбекистане</h6>
-              <span>Данные: Минздрав Узбекистана, Университет Джонса Хопкинса (США)</span>
+  <!--Start Statistics-->
+  {% include 'partials/stats.html' %}
+  <!--Ends Statistics-->
+
+  <!--Start Main News-->
+  <section class="rp-news rp-grid">
+    <div class="rp-width-1-1@s rp-width-3-4@m rp-width-3-4@l">
+      <div class="rp-grid">
+        <div class="rp-news__intro rp-width-1-2@s rp-width-1-2@l rp-is-item">
+          <div class="rp-card">
+            <div class="rp-card--image">
+              <a href="/" class="rp-news-link rp-news-link--intro">
+                <img src="img/news/img11.jpg" alt="" />
+              </a>
+            </div>
+            <div class="rp-card--body rp-news--content">
+              <div class="rp-news--date">12:00, Сегодня</div>
+              <h1 class="rp-news--title">
+                <a href="#" title="">Названа самая уязвимая перед коронавирусом категория людей</a>
+              </h1>
             </div>
           </div>
-          <div class="rp-corona__stat rp-stat grid-row grid-row--wrap grid-row--j-e">
+        </div>
+        <div class="rp-width-1-2@s rp-width-1-2@l rp-is-item rp-news__list">
+          <ul class="rp-news--list">
             {%- for item in [
-              { count: "1 716",
-                text: "выявлено"
+              { title: "Главное за минуту: чиновникам вернули докризисные зарплаты", 
+                link: "page.html", 
+                date: "14:20, 23 февраля", 
+                image: "img01"
               },
-              { count: "450",
-                text: "вылечились"
+              { title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
+                link: "page.html", 
+                date: "14:20, 23 февраля", 
+                image: "img01"
               },
-              { count: "7",
-                text: "скончались"
+              { title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
+                link: "page.html", 
+                date: "14:20, 23 февраля", 
+                image: "img01"
+              },
+              { title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+                link: "page.html", 
+                date: "14:20, 23 февраля", 
+                image: "img01"
               }
             ] %}
-            <div class="rp-stat__item">
-              <div class="rp-stat--count">{{ item.count }}</div>
-              <span>{{ item.text }}</span>
-            </div>
+            <li class="rp-news__item">
+              <a class="rp-news-link rp-news-link--small" href="{{ item.link }}" title="">
+                <img src="img/news/{{ item.image }}.jpg" alt="" />
+              </a>
+              <div class="rp-news__content">
+                <div class="rp-news--date">{{ item.date }}</div>
+                <h6 class="rp-news__title">
+                  <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
+                </h6>
+              </div>
+            </li>
             {%- endfor %}
-          </div>
+          </ul>
         </div>
       </div>
-      <!--mobile view-->
-      <div class="statpanel__corona rp-corona grid-row grid-row--wrap grid-row--j-s dn">
-        <div class="rp-corona__title grid-row grid-row--a-c">
-          <img src="img/home/korona.png" alt="" />
-          <div class="rp-corona__info">
-            <h6>Коронавирус в Узбекистане</h6>
-            <span>Данные: Минздрав Узбекистана, Университет Джонса Хопкинса (США)</span>
-          </div>
-        </div>
-        <div class="rp-corona__stat rp-stat grid-row grid-row--wrap grid-row--j-e">
-          {%- for item in [
-            { count: "1 716",
-              text: "выявлено"
-            },
-            { count: "450",
-              text: "вылечились"
-            },
-            { count: "7",
-              text: "скончались"
-            }
-          ] %}
-          <div class="rp-stat__item">
-            <div class="rp-stat--count">{{ item.count }}</div>
-            <span>{{ item.text }}</span>
-          </div>
-          {%- endfor %}
-        </div>
-      </div>
-    </section>
-    <!--Ends Statistics-->
+    </div>
+    <!--Start Reklama-->
+    {% include 'partials/reklama/reklama-right.html' %}
+    <!--Ends Reklama-->
+  </section>
+  <!--Ends Main News-->
 
-    <!--Start Main News-->
-    <section class="rp-news rp-grid">
-      <div class="rp-width-1-1@s rp-width-3-4@m rp-width-3-4@l">
-        <div class="rp-grid">
-          <div class="rp-news__intro rp-width-1-2@s rp-width-1-2@l rp-is-item">
-            <div class="rp-card">
-              <div class="rp-card--image">
-                <a href="/" class="rp-news-link rp-news-link--intro">
-                  <img src="img/news/img11.jpg" alt="" />
-                </a>
-              </div>
-              <div class="rp-card--body rp-news--content">
-                <div class="rp-news--date">12:00, Сегодня</div>
-                <h1 class="rp-news--title">
-                  <a href="#" title="">Названа самая уязвимая перед коронавирусом категория людей</a>
-                </h1>
-              </div>
+  <div class="divider"></div>
+
+  <!--Start Popular News-->
+  <section class="rp-grid rp-hotnews">
+    <div class="rp-width-1-1@s rp-width-3-4@m rp-width-3-4@l">
+      <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
+        <h1 class="rp-pagetitle">Популярные новости</h1>
+        <a href="/" class="rp-seemore color-blue">Смотреть все</a>
+      </div>
+      <div class="rp-hotnews__main rp-grid">
+        {%- for item in [
+          { 
+            title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img03"
+          },
+          { 
+            title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img08"
+          },
+          { 
+            title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img05"
+          },
+          { 
+            title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img06"
+          },
+          { 
+            title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img04"
+          },
+          { 
+            title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+            link: "page.html",
+            date: "14:20, 23 февраля",
+            image: "img07"
+          }
+        ] %}
+        <div class="rp-width-1-1 rp-width-1-2@s rp-width-1-2@m rp-width-1-3@l rp-width-middle rp-is-item">
+          <div class="rp-card">
+            <div class="rp-card--image">
+              <a href="{{ item.link }}" class="rp-news-link">
+                <img src="img/news/{{ item.image }}.jpg" alt="" />
+              </a>
+            </div>
+            <div class="rp-card--body rp-news--content">
+              <div class="rp-news--date">{{ item.date }}</div>
+              <h5 class="rp-news--title">
+                <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
+              </h5>
             </div>
           </div>
-          <div class="rp-width-1-2@s rp-width-1-2@l rp-is-item rp-news__list">
-            <ul class="rp-news--list">
-              {%- for item in [
-                { title: "Главное за минуту: чиновникам вернули докризисные зарплаты", 
-                  link: "page.html", 
-                  date: "14:20, 23 февраля", 
-                  image: "img01"
-                },
-                { title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
-                  link: "page.html", 
-                  date: "14:20, 23 февраля", 
-                  image: "img01"
-                },
-                { title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
-                  link: "page.html", 
-                  date: "14:20, 23 февраля", 
-                  image: "img01"
-                },
-                { title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                  link: "page.html", 
-                  date: "14:20, 23 февраля", 
-                  image: "img01"
-                }
-              ] %}
-              <li class="rp-news__item">
-                <a class="rp-news-link rp-news-link--small" href="{{ item.link }}" title="">
-                  <img src="img/news/{{ item.image }}.jpg" alt="" />
-                </a>
-                <div class="rp-news__content">
-                  <div class="rp-news--date">{{ item.date }}</div>
-                  <h6 class="rp-news__title">
-                    <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
-                  </h6>
-                </div>
-              </li>
-              {%- endfor %}
-            </ul>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+    <!--Start Sidebar-->
+    <aside class="rp-sidebar rp-width-1-4@s rp-width-1-4@l dn-ds">
+      {% include 'partials/news/popular-news.html' %}
+    </aside>
+    <!--Ends Sidebar-->
+  </section>
+  <!--Ends Popular News-->
+</div>
+
+<!--Start Exclusive-->
+<section class="rp-exclusive rp-bg-section">
+  <div class="rp-container">
+    <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
+      <h1 class="rp-pagetitle">Эксклюзив</h1>
+      <a href="/" class="rp-seemore color-blue">Смотреть все</a>
+    </div>
+    <div class="rp-grid">
+      <div class="rp-width-1-2@s rp-width-2-5@m rp-width-2-5@l rp-is-item">
+        <div class="rp-card">
+          <a href="/" class="rp-news-link rp-news-link--intro">
+            <img src="img/news/img12.jpg" alt="" />
+          </a>
+          <div class="rp-news--content">
+            <div class="rp-news--date">12:00, Сегодня</div>
+            <h2 class="rp-news--title">
+              <a href="#" title="">Проблемные зоны в докладах форума «Стратегии действий»</a>
+            </h2>
           </div>
         </div>
       </div>
-      <div class="reklama reklama-sidebar rp-width-1-4@m rp-width-1-4@l dn-t">
-        <img src="img/banner/banner-right.jpg" alt="" />
-        <ul class="reklama-nav">
-          {%- for item in [
-            { title: "Медиакит", link: "mediakit.html" },
-            { title: "Цены", link: "price.html" },
-            { title: "Контакты",  link: "contacts.html" }
-          ] %}
-          <li class="reklama-nav__item">
-            <a class="reklama-nav__link" href="{{ item.link }}">
-              <span>{{ item.title }}</span>
-            </a>
-          </li>
-          {%- endfor %}
-        </ul>
-      </div>
-    </section>
-    <!--Ends Main News-->
-
-    <div class="divider"></div>
-
-    <!--Start Popular News-->
-    <section class="rp-grid rp-hotnews">
-      <div class="rp-width-1-1@s rp-width-3-4@m rp-width-3-4@l">
-        <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
-          <h1 class="rp-pagetitle">Популярные новости</h1>
-          <a href="/" class="rp-seemore color-blue">Смотреть все</a>
-        </div>
-        <div class="rp-hotnews__main rp-grid">
+      <div class="rp-width-1-2@s rp-width-3-5@m rp-width-3-5@l">
+        <div class="rp-grid">
           {%- for item in [
             { 
               title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
@@ -229,7 +210,7 @@
               image: "img07"
             }
           ] %}
-          <div class="rp-width-1-1 rp-width-1-2@s rp-width-1-2@m rp-width-1-3@l rp-width-middle rp-is-item">
+          <div class="rp-width-1-1 rp-width-1-2@s rp-width-1-2@m rp-width-1-3@l rp-width-smal rp-is-item">
             <div class="rp-card">
               <div class="rp-card--image">
                 <a href="{{ item.link }}" class="rp-news-link">
@@ -238,77 +219,27 @@
               </div>
               <div class="rp-card--body rp-news--content">
                 <div class="rp-news--date">{{ item.date }}</div>
-                <h5 class="rp-news--title">
+                <h6 class="rp-news--title">
                   <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
-                </h5>
+                </h6>
               </div>
             </div>
           </div>
           {%- endfor %}
         </div>
       </div>
-      <div class="rp-sidebar rp-width-1-4@s rp-width-1-4@l dn-t">
-        <div class=" grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
-          <h3 class="rp-pagetitle">Популярные</h3>
-          <a href="/" class="rp-seemore color-blue">Смотреть все</a>
-        </div>
-        <div class="rp-hotnews__main rp-grid">
-          {%- for item in [
-            { 
-              title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
-              link: "page.html",
-              date: "14:20, 23 февраля"
-            },
-            { 
-              title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
-              link: "page.html",
-              date: "14:20, 23 февраля",
-              exclusive: true,
-              etext: "ЭКСКЛЮЗИВ"
-            },
-            { 
-              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-              link: "page.html",
-              date: "14:20, 23 февраля"
-            },
-            { 
-              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-              link: "page.html",
-              date: "14:20, 23 февраля"
-            },
-            { 
-              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-              link: "page.html",
-              date: "14:20, 23 февраля"
-            },
-            { 
-              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-              link: "page.html",
-              date: "14:20, 23 февраля"
-            }
-          ] %}
-          <div class="rp-is-item">
-            <div class="rp-card">
-              <div class="rp-card--body rp-news--content">
-                <div class="grid-row grid-row--wrap grid-row--a-c mb-1">
-                  <div class="{{ 'exclusive' if item.exclusive }} rp-news--new">{{ item.etext }}</div>
-                  <div class="rp-news--date mb-0">{{ item.date }}</div>
-                </div>
-                <h5 class="rp-news--title">
-                  <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
-                </h5>
-              </div>
-            </div>
-          </div>
-          {%- endfor %}
-        </div>
-      </div>
-    </section>
-    <!--Ends Popular News-->
+    </div>
   </div>
+</section>
+<!--Start Exclusive-->
+
+<div class="rp-container">
+  <!--Start Reklama-->
+  {% include 'partials/reklama/reklama-center.html' %}
+  <!--Ends Reklama-->
 
   <!--Start Exclusive-->
-  <section class="rp-exclusive">
+  <section class="rp-videonews">
     <div class="rp-container">
       <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
         <h1 class="rp-pagetitle">Эксклюзив</h1>
@@ -317,8 +248,11 @@
       <div class="rp-grid">
         <div class="rp-width-1-2@s rp-width-2-5@m rp-width-2-5@l rp-is-item">
           <div class="rp-card">
-            <a href="/" class="rp-news-link rp-news-link--intro">
-              <img src="img/news/img12.jpg" alt="" />
+            <a href="/" class="rp-news-link rp-news-link--intro rp-news-video">
+              <img src="img/news/img10.jpg" alt="" />
+              <svg>
+                <use href="img/icons.svg#play-circle"></use>
+              </svg>
             </a>
             <div class="rp-news--content">
               <div class="rp-news--date">12:00, Сегодня</div>
@@ -331,48 +265,51 @@
         <div class="rp-width-1-2@s rp-width-3-5@m rp-width-3-5@l">
           <div class="rp-grid">
             {%- for item in [
-              { 
-                title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img03"
-              },
-              { 
-                title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img08"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img05"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img06"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img04"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img07"
-              }
-            ] %}
+            { 
+              title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img03"
+            },
+            { 
+              title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img08"
+            },
+            { 
+              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img05"
+            },
+            { 
+              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img06"
+            },
+            { 
+              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img04"
+            },
+            { 
+              title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+              link: "page.html",
+              date: "14:20, 23 февраля",
+              image: "img07"
+            }
+          ] %}
             <div class="rp-width-1-1 rp-width-1-2@s rp-width-1-2@m rp-width-1-3@l rp-width-smal rp-is-item">
               <div class="rp-card">
                 <div class="rp-card--image">
-                  <a href="{{ item.link }}" class="rp-news-link">
+                  <a href="{{ item.link }}" class="rp-news-link rp-news-video">
                     <img src="img/news/{{ item.image }}.jpg" alt="" />
+                    <svg>
+                      <use href="img/icons.svg#play-circle"></use>
+                    </svg>
                   </a>
                 </div>
                 <div class="rp-card--body rp-news--content">
@@ -391,132 +328,34 @@
   </section>
   <!--Start Exclusive-->
 
-  <div class="rp-container">
-    <!--Start Reklama-->
-    <section class="reklama reklama-center">
-      <img src="img/banner/banner-center.jpg" alt="" />
-    </section>
-    <!--Ends Reklama-->
+  <div class="divider"></div>
 
-    <!--Start Exclusive-->
-    <section class="rp-videonews">
-      <div class="rp-container">
-        <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
-          <h1 class="rp-pagetitle">Эксклюзив</h1>
-          <a href="/" class="rp-seemore color-blue">Смотреть все</a>
+  <!--Start Corona Poll-->
+  <div class="rp-poll">
+    <div class="rp-poll--title">У Вас есть знакомые больные коронавирусом?</div>
+    <form action="#" class="rp-poll--form">
+      <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-c">
+        <div class="rp-poll--item">
+          <input type="radio" id="test1" name="radio-group" checked>
+          <label for="test1">Не знаю</label>
         </div>
-        <div class="rp-grid">
-          <div class="rp-width-1-2@s rp-width-2-5@m rp-width-2-5@l rp-is-item">
-            <div class="rp-card">
-              <a href="/" class="rp-news-link rp-news-link--intro rp-news-video">
-                <img src="img/news/img10.jpg" alt="" />
-                <svg>
-                  <use href="img/icons.svg#play-circle"></use>
-                </svg>
-              </a>
-              <div class="rp-news--content">
-                <div class="rp-news--date">12:00, Сегодня</div>
-                <h2 class="rp-news--title">
-                  <a href="#" title="">Проблемные зоны в докладах форума «Стратегии действий»</a>
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div class="rp-width-1-2@s rp-width-3-5@m rp-width-3-5@l">
-            <div class="rp-grid">
-              {%- for item in [
-              { 
-                title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img03"
-              },
-              { 
-                title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img08"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img05"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img06"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img04"
-              },
-              { 
-                title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
-                link: "page.html",
-                date: "14:20, 23 февраля",
-                image: "img07"
-              }
-            ] %}
-              <div class="rp-width-1-1 rp-width-1-2@s rp-width-1-2@m rp-width-1-3@l rp-width-smal rp-is-item">
-                <div class="rp-card">
-                  <div class="rp-card--image">
-                    <a href="{{ item.link }}" class="rp-news-link rp-news-video">
-                      <img src="img/news/{{ item.image }}.jpg" alt="" />
-                      <svg>
-                        <use href="img/icons.svg#play-circle"></use>
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="rp-card--body rp-news--content">
-                    <div class="rp-news--date">{{ item.date }}</div>
-                    <h6 class="rp-news--title">
-                      <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              {%- endfor %}
-            </div>
-          </div>
+        <div class="rp-poll--item">
+          <input type="radio" id="test2" name="radio-group">
+          <label for="test2">Не помню</label>
+        </div>
+        <div class="rp-poll--item">
+          <input type="radio" id="test3" name="radio-group">
+          <label for="test3">Возможно</label>
+        </div>
+        <div class="rp-poll--item">
+          <input type="radio" id="test4" name="radio-group">
+          <label for="test4">Да</label>
         </div>
       </div>
-    </section>
-    <!--Start Exclusive-->
-
-    <div class="divider"></div>
-
-    <!--Start Corona Poll-->
-    <div class="rp-poll">
-      <div class="rp-poll--title">У Вас есть знакомые больные коронавирусом?</div>
-      <form action="#" class="rp-poll--form">
-        <div class="grid-row grid-row--wrap grid-row--a-c grid-row--j-c">
-          <div class="rp-poll--item">
-            <input type="radio" id="test1" name="radio-group" checked>
-            <label for="test1">Не знаю</label>
-          </div>
-          <div class="rp-poll--item">
-            <input type="radio" id="test2" name="radio-group">
-            <label for="test2">Не помню</label>
-          </div>
-          <div class="rp-poll--item">
-            <input type="radio" id="test3" name="radio-group">
-            <label for="test3">Возможно</label>
-          </div>
-          <div class="rp-poll--item">
-            <input type="radio" id="test4" name="radio-group">
-            <label for="test4">Да</label>
-          </div>
-        </div>
-        <button class="btn btn-default mt-1" type="button">Ответить</button>
-      </form>
-    </div>
-    <!--Ends Corona Poll-->
-
+      <button class="btn btn-default mt-1" type="button">Ответить</button>
+    </form>
   </div>
-</main>
+  <!--Ends Corona Poll-->
+
+</div>
 {% endblock %}

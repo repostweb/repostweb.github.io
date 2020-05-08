@@ -25,6 +25,10 @@ header {
       object-position: center left;
     }
   }
+
+  &__search {
+    max-width: 400px;
+  }
 }
 
 .navmenu {
@@ -40,7 +44,7 @@ header {
 }
 
 .navbar-form {
-  width: 400px;
+  width: 100%;
   height: 43px;
 
   &__btn {
@@ -96,13 +100,6 @@ header {
 
 main {
   flex: 1;
-}
-
-.rp-main {
-  &-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
 }
 
 .reklama {
@@ -402,6 +399,19 @@ footer {
         }
       }
     }
+
+    .rp {
+      &-is-item {
+        .rp-card {
+          margin-bottom: 15px;
+        }
+      }
+
+      &-news__item {
+        margin-bottom: 25px;
+      }
+    }
+
   }
 
   &-row {
@@ -429,11 +439,11 @@ footer {
     }
   }
 
-  &-exclusive {
-    background-color: $gray;
+  &-bg-section {
     width: 100%;
     padding-top: 30px;
     padding-bottom: 15px;
+    background-color: $gray;
   }
 
   &-poll {
@@ -457,6 +467,44 @@ footer {
       }
     }
   }
+
+  &-main {
+    padding: 20px 0 30px;
+
+    &-body {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &-innerpage {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  &-category {
+    background-color: $color-main;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    margin-right: 15px;
+  }
+
+  &-page-title {
+    font-weight: 700;
+    line-height: 36.4px;
+    margin-bottom: 15px;
+  }
+
+  &-subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 25px;
+  }
 }
 
 .exclusive {
@@ -470,6 +518,15 @@ footer {
 
 .color-blue {
   color: $color-main;
+}
+
+@media (max-width: 1300px) {
+  .rp {
+    &-innerpage {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 
 @media (max-width: 1200px) {
@@ -692,5 +749,28 @@ footer {
       width: 14px;
       height: 14px;
     }
+  }
+}
+
+blockquote {
+  border-left: 2px solid $color-main;
+  padding-left: 24px;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25.6px;
+  margin: 0 0 20px;
+}
+
+article {
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    color: $color-main;
+    font-weight: 500;
   }
 }

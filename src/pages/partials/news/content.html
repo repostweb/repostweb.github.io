@@ -1,0 +1,109 @@
+<div class="rp-innerpage">
+  <div class="grid-row grid-row--wrap grid-row--a-c mb-15">
+    <div class="rp-category">Мир</div>
+    <div class="rp-news--date">12:00, Сегодня</div>
+  </div>
+  <div class="rp-grid">
+    <div class="rp-width-1-1@s rp-width-2-3@m rp-width-2-3@l">
+      <article>
+        <h1 class="rp-page-title">Трамп поручил расследовать возможный сговор между ВОЗ и Китая</h1>
+        <p class="rp-subtitle">Расследованием займутся Агентство национальной безопасности, Разведывательное
+          управление Министерства обороны США и ЦРУ.a</p>
+        <div class="rp-thumbnail">
+          <img class="mb-15" src="img/news/img13.jpg" alt="" />
+          <p class="text-italic text-mute fs12">Фото: Газета.ру</p>
+          <div class="mb-2"></div>
+          <p>
+            Президент США Дональд Трамп поручил американским спецслужбам расследовать возможный сговор Всемирной
+            организации здравоохранения (ВОЗ) и Китая. Предполагается, что они могли скрыть информацию о
+            коронавирусе, <a class="" href="#" title="">сообщает NBC News</a> со ссылкой на источники в Белом доме.
+          </p>
+          <blockquote>
+            Мы недовольны этой ситуацией, потому что верим: эпидемию можно было остановить быстрее, и не
+            распространился бы по всему миру, — цитирует издание американского лидера.
+          </blockquote>
+          <p>
+            Источники отметили, что есть предположение, будто ВОЗ знала о существовании лабораторий в китайском
+            Ухане.</p>
+          <p>
+            Расследованием займутся Агентство национальной безопасности, Разведывательное управление Министерства
+            обороны США и ЦРУ. Они изучат информацию от источников, спутниковые снимки и другие данные, чтобы
+            вынести свой вердикт на их основе.
+          </p>
+          <p>
+            Ранее американский телеканал Fox News со ссылкой на несколько источников сообщил, что первый пациент,
+            заразившийся коронавирусом нового типа, был работником лаборатории Уханьского института вирусологии.
+            Официальный представитель МИД Китая <a href="#" title="">Чжао Лицзянь в ответ заявил</a> , что версия о
+            разработке коронавируса
+            SARS-CoV-2 в лаборатории в Ухане не имеет никаких научных оснований. США призвали Китай раскрыть полную
+            информацию о первом заражении вирусом.
+          </p>
+          <div class="divider"></div>
+          <div class="grid-row grid-row--wrap grid-row--j-s grid-row--a-c">
+            <p class="mb-2">Больше новостей в Телеграм-канале <a href="https://t.me/RepostUz"
+                target="_blank">@RepostUZ.</a></p>
+            <ul class="rp-social mb-2">
+              {%- for item in [
+                {
+                  link: "#", 
+                  image: "social"
+                }
+              ] %}
+              <li class="rp-social--item">
+                <a class="rp-social--link" href="{{ item.link }}" title="">
+                  <img src="img/{{ item.image }}.png" alt="" />
+                </a>
+              </li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+    <!--Start Sidebar-->
+    <aside class="rp-sidebar rp-width-1-3@m rp-width-1-3@l dn-ds">
+      {% include 'partials/news/popular-news.html' %}
+      <div class=" grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
+        <h3 class="rp-pagetitle">Похожие новости</h3>
+        <a href="/" class="rp-seemore color-blue">Смотреть все</a>
+      </div>
+      <ul class="rp-news--list ">
+        {%- for item in [
+          { title: "Главное за минуту: чиновникам вернули докризисные зарплаты", 
+            link: "page.html", 
+            date: "14:20, 23 февраля", 
+            image: "img01"
+          },
+          { title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
+            link: "page.html", 
+            date: "14:20, 23 февраля", 
+            image: "img01"
+          },
+          { title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
+            link: "page.html", 
+            date: "14:20, 23 февраля", 
+            image: "img01"
+          },
+          { title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+            link: "page.html", 
+            date: "14:20, 23 февраля", 
+            image: "img01"
+          }
+        ] %}
+        <li class="rp-news__item">
+          <a class="rp-news-link rp-news-link--small" href="{{ item.link }}" title="">
+            <img src="img/news/{{ item.image }}.jpg" alt="" />
+          </a>
+          <div class="rp-news__content">
+            <div class="rp-news--date">{{ item.date }}</div>
+            <h6 class="rp-news__title">
+              <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
+            </h6>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </aside>
+    <!--Ends Sidebar-->
+  </div>
+</div>

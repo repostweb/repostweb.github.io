@@ -1,0 +1,16 @@
+<div class="reklama reklama-sidebar rp-width-1-4@m rp-width-1-4@l dn-t">
+  <img src="img/banner/banner-right.jpg" alt="" />
+  <ul class="reklama-nav">
+    {%- for item in [
+      { title: "Медиакит", link: "mediakit.html" },
+      { title: "Цены", link: "price.html" },
+      { title: "Контакты",  link: "contacts.html" }
+    ] %}
+    <li class="reklama-nav__item">
+      <a class="reklama-nav__link" href="{{ item.link }}">
+        <span>{{ item.title }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>

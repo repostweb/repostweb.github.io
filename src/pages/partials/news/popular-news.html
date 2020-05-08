@@ -1,0 +1,54 @@
+<div class=" grid-row grid-row--wrap grid-row--a-c grid-row--j-s rp-title">
+  <h3 class="rp-pagetitle">Популярные</h3>
+  <a href="/" class="rp-seemore color-blue">Смотреть все</a>
+</div>
+<div class="rp-hotnews__main rp-grid">
+  {%- for item in [
+    { 
+      title: "Фондсервисбанк переименован в Роскосмосбанк миллионы россиян скрывают доходы", 
+      link: "page.html",
+      date: "14:20, 23 февраля"
+    },
+    { 
+      title: "Пользователи все чаще выбирают кредиты на Банки.ру", 
+      link: "page.html",
+      date: "14:20, 23 февраля",
+      exclusive: true,
+      etext: "ЭКСКЛЮЗИВ"
+    },
+    { 
+      title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+      link: "page.html",
+      date: "14:20, 23 февраля"
+    },
+    { 
+      title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+      link: "page.html",
+      date: "14:20, 23 февраля"
+    },
+    { 
+      title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+      link: "page.html",
+      date: "14:20, 23 февраля"
+    },
+    { 
+      title: "Чиновникам Кремля и Белого дома вернули урезанные из-за кризиса зарплаты", 
+      link: "page.html",
+      date: "14:20, 23 февраля"
+    }
+  ] %}
+  <div class="rp-is-item">
+    <div class="rp-card">
+      <div class="rp-card--body rp-news--content">
+        <div class="grid-row grid-row--wrap grid-row--a-c mb-1">
+          <div class="{{ 'exclusive' if item.exclusive }} rp-news--new">{{ item.etext }}</div>
+          <div class="rp-news--date mb-0">{{ item.date }}</div>
+        </div>
+        <h5 class="rp-news--title">
+          <a href="{{ item.link }}" title="{{ item.title }}">{{ item.title }}</a>
+        </h5>
+      </div>
+    </div>
+  </div>
+  {%- endfor %}
+</div>
